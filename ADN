@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta content=type">
+  <title>Chatbot de Tecnologías del ADN</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom right, #e0f7fa, #f1f8e9);
+      color: #333;
+      padding: 20px;
+    }
+
+    #chatbox {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #ffffff;
+      border: 2px solid #009688;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .question-button {
+      display: block;
+      margin: 10px 0;
+      padding: 10px;
+      background-color: #80cbc4;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .question-button:hover {
+      background-color: #4db6ac;
+    }
+
+    #output {
+      margin-top: 20px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 8px;
+      margin-top: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    button {
+      padding: 8px 12px;
+      background-color: #00796b;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #004d40;
+    }
+
+    .back-button {
+      background-color: #c62828;
+      margin-top: 20px;
+    }
+
+    .correct {
+      color: green;
+    }
+
+    .incorrect {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <div id="chatbox">
+    <h2> Chatbot: Tecnologías del ADN</h2>
+    <div id="menu">
+      <p>Selecciona una pregunta:</p>
+      <button class="question-button" onclick="selectQuestion(0)">1. ¿Qué son las tecnologías del ADN?</button>
+      <button class="question-button" onclick="selectQuestion(1)">2. ¿Qué es la PCR y para qué sirve?</button>
+      <button class="question-button" onclick="selectQuestion(2)">3. ¿Qué es CRISPR y cómo funciona?</button>
+      <button class="question-button" onclick="selectQuestion(3)">4. Aplicaciones en medicina</button>
+      <button class="question-button" onclick="selectQuestion(4)">5. Aplicaciones en agricultura</button>
+      <button class="question-button" onclick="selectQuestion(5)">6. Riesgos y controversias</button>
+      <button class="question-button" onclick="selectQuestion(6)">7. ADN en la criminalística</button>
+    </div>
+
+    <div id="output"></div>
+  </div>
+
+  <script>
+    const questions = [
+      "¿Qué son las tecnologías del ADN?",
+      "¿Qué es la PCR y para qué sirve?",
+      "¿Qué es CRISPR y cómo funciona?",
+      "¿Qué aplicaciones tiene la tecnología del ADN en la medicina?",
+      "¿Qué papel juegan las tecnologías del ADN en la agricultura?",
+      "¿Qué riesgos o controversias existen alrededor de estas tecnologías?",
+      "¿Cómo se utiliza el ADN en la criminalística?"
+    ];
+
+    const answers = [
+      "Son técnicas científicas que permiten manipular, estudiar y aplicar el ADN con distintos fines.",
+      "Es una técnica que permite copiar muchas veces un fragmento de ADN. Se usa para diagnóstico, investigación o criminalística.",
+      "Es una herramienta de edición genética que permite cortar y modificar el ADN de forma precisa.",
+      "Se usan para diagnóstico genético, terapias génicas, medicina personalizada y detección de enfermedades.",
+      "Se usan para mejorar cultivos y animales, haciéndolos más resistentes, productivos o nutritivos.",
+      "Incluyen preocupaciones éticas, ambientales, seguridad alimentaria y desigualdad en el acceso.",
+      "Se usa para identificar personas mediante muestras biológicas, resolver crímenes y hacer pruebas de parentesco."
+    ];
+
+    function selectQuestion(index) {
+      const output = document.getElementById("output");
+      output.innerHTML = `
+        <p><strong>Pregunta ${index + 1}:</strong> ${questions[index]}</p>
+        <input type="text" id="userAnswer" placeholder="Escribe tu respuesta aquí...">
+        <button onclick="checkAnswer(${index})">Enviar respuesta</button>
+        <button class="back-button" onclick="goBack()">⬅ Volver al menú</button>
+      `;
+    }
+
+    function checkAnswer(index) {
+      const userAnswer = document.getElementById("userAnswer").value.toLowerCase();
+      const correct = answers[index].toLowerCase();
+
+      const output = document.getElementById("output");
+      if (userAnswer.includes(correct.substring(0, 10))) {
+        output.innerHTML += `<p class="correct">✅ ¡Correcto!</p>`;
+      } else {
+        output.innerHTML += `<p class="incorrect">❌ Incorrecto. <br>Respuesta correcta: ${answers[index]}</p>`;
+      }
+    }
+
+    function goBack() {
+      document.getElementById("output").innerHTML = "";
+    }
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imagen desde mi PC (carpeta)</imagenes>
+</head>
+<body>
+
+    <h1>Imagen Local desde carpeta</h1>
+    <p>Esta imagen se carga desde una carpeta llamada 'imagenes'.</p>
+    
+    <img src="imagenes/gemini.jpg" alt="Descripción de mi imagen en carpeta" style="max-width: 100%; height: auto;">
+
+</body>
+</html>
